@@ -36,6 +36,7 @@ namespace TemporaryInjuries{
         
         public static ConfigEntry<bool> EnableTemporaryInjuries { get; set; }
         public static ConfigEntry<bool> EnableHighCostInjuries { get; set; }
+        public static ConfigEntry<float> HighCostInjuryMultiplier { get; set; }
         internal int ModDate = int.Parse(DateTime.Today.ToString("yyyyMMdd"));
         private readonly Harmony harmony = new(PluginInfo.PLUGIN_GUID);
         internal static ManualLogSource Log;
@@ -52,7 +53,7 @@ namespace TemporaryInjuries{
             // Sets the title, default values, and descriptions
             EnableTemporaryInjuries = Config.Bind(new ConfigDefinition("TemporaryInjuries", "EnableTemporaryInjuries"), true, new ConfigDescription("If false, disables the mod. Restart the game upon changing this setting."));
             EnableHighCostInjuries = Config.Bind(new ConfigDefinition("TemporaryInjuries", "EnableHighCostInjuries"), true, new ConfigDescription("If true, increases the cost of injuries on Base Madness 9 to compensate for making them removeable."));
-            
+            HighCostInjuryMultiplier = Config.Bind(new ConfigDefinition("TemporaryInjuries", "HighCostInjuryMultiplier"), 5.0f, new ConfigDescription("Multiplier for the cost of injuries."));
             // Register with Obeliskial Essentials, delete this if you don't need it.
             // RegisterMod(
             //     _name: PluginInfo.PLUGIN_NAME,
