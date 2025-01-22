@@ -1,0 +1,9 @@
+{
+    "name": "Faster Fast Mode",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/binbinmods/Ultrafast",
+    "description": "A mod that makes fast mode slightly faster (enables \"Ultrafast\" mode).",
+    "dependencies": [
+        "BepInEx-BepInExPack_AcrossTheObelisk-5.4.23"
+    ]
+}
