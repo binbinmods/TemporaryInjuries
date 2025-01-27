@@ -1,8 +1,6 @@
 # Faster Fast Mode
 
-This is a simple mod that enables Ultrafast mode, making fast mode faster by skipping certain animations and the like.
-
-Inspired by a similar mod by 
+This is a simple mod that disables Permanent Injuries and replaces them with an increased cost to remove the injuries.
 
 Any suggestions will be greatly appreciated.
 
@@ -12,7 +10,7 @@ Any suggestions will be greatly appreciated.
 1. Click `Manual Download` at the top of the page.
 2. Extract the files from the `.zip` somewhere same.
 2. Navigate to the `BepInEx` directory. You can do this in Steam, right-click Across the Obelisk and select `Manage -> Browse local files_`
-3. Copy the `com.binbin.Ultrafast.dll` from the extracted `Ultrafast\BepInEx\plugins` to `AcrossTheObelisk\BepInEx\plugins`
+3. Copy the `com.binbin.TemporaryInjuries.dll` from the extracted `TemporaryInjuries\BepInEx\plugins` to `AcrossTheObelisk\BepInEx\plugins`
 4. Depending on your extraction tool, you can directly extracting the mod directly into your `BepInEx` folder. 
 
 ## Installation (automatic)

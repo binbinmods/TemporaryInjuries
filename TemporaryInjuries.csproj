@@ -32,7 +32,7 @@
       <HintPath>../../!libs/0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>../../!libs/Assembly-CSharp v1.5.dll</HintPath>
+      <HintPath>../../!libs/Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>../../!libs/Unity.TextMeshPro.dll</HintPath>

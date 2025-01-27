@@ -4,7 +4,6 @@ using BepInEx.Configuration;
 using HarmonyLib;
 // using static Obeliskial_Essentials.Essentials;
 using System;
-using static Ultrafast.CustomFunctions;
 using static TemporaryInjuries.Plugin;
 using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
@@ -83,7 +82,9 @@ namespace TemporaryInjuries
             else
             {
                 BG_Remove.Disable();
+                
             }
+            Traverse.Create(__instance).Field("BG_Remove").SetValue(BG_Remove);
             return;
         }
 
@@ -91,6 +92,7 @@ namespace TemporaryInjuries
         [HarmonyPatch(typeof(CardCraftManager), nameof(CardCraftManager.SelectCard))]
         public static void SelectCardPostfix(ref CardCraftManager __instance, string cardName)
         {
+            LogInfo("SelectCardPostfix");
             string[] array = cardName.Split('_');
             string text = array[0];
             float multiplier = 5.0f;
@@ -110,13 +112,20 @@ namespace TemporaryInjuries
             }
             BotonGeneric BG_Remove = Traverse.Create(__instance).Field("BG_Remove").GetValue<BotonGeneric>();
             int costRemove = Traverse.Create(__instance).Field("costRemove").GetValue<int>();
-
+            LogDebug($"Starting costRemove = {costRemove}");
             if (__instance.craftType == 1)
             {
                 __instance.oldcostRemoveText.text = "";
                 costRemove = Mathf.RoundToInt(SetPrice(__instance,"Remove", "")*multiplier);
+                LogDebug($"SetPrice costRemove = {costRemove}");
                 BG_Remove.SetText(__instance.ButtonText(costRemove));
+
+                Traverse.Create(__instance).Field("costRemove").SetValue(costRemove);
+                Traverse.Create(__instance).Field("BG_Remove").SetValue(BG_Remove);
+
+                LogDebug($"PostTraverses");
                 int num = SetPrice(__instance,"Remove", "", "", 0, useShopDiscount: false);
+
                 if (num != costRemove)
                 {
                     __instance.oldcostRemoveText.text = string.Format(Texts.Instance.GetText("oldCost"), num.ToString());
@@ -140,6 +149,7 @@ namespace TemporaryInjuries
             }
             if (isPetShop)
             {
+                LogDebug($"isPetShop");
                 if (cardName != "")
                 {
                     rarity = Enum.GetName(typeof(Enums.CardRarity), Globals.Instance.GetCardData(cardName, instantiate: false).CardRarity);
@@ -170,6 +180,7 @@ namespace TemporaryInjuries
                 switch (function)
                 {
                     case "Remove":
+                        LogDebug($"IsRemove");
                         if (zoneTier == 0 && GameManager.Instance.IsSingularity())
                         {
                             num = 0;
