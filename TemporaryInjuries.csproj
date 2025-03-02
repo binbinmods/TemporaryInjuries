@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>com.binbin.TemporaryInjuries</AssemblyName>
     <Product>TemporaryInjuries</Product>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -42,6 +42,8 @@
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="../../../plugins" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="TemporaryInjuries/BepInEx/plugins" />
+    <Exec Command="/usr/bin/python3 &quot;$(ProjectDir)ship_mod.py&quot;" />
+
   </Target>
 
 </Project>

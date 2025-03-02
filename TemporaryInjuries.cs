@@ -95,10 +95,10 @@ namespace TemporaryInjuries
             LogInfo("SelectCardPostfix");
             string[] array = cardName.Split('_');
             string text = array[0];
-            float multiplier = 5.0f;
-            // float multiplier = HighCostInjuryMultiplier.Value;
+            // float multiplier = 5.0f;
+            float multiplier = HighCostInjuryMultiplier.Value;
 
-            EnableHighCostInjuries.Value = true;
+            // EnableHighCostInjuries.Value = true;
             if (!EnableHighCostInjuries.Value)
             {
                 LogDebug("High Cost Injuries Disabled");

@@ -1,6 +1,6 @@
 {
     "name": "Temporary Injuries",
-    "version_number": "1.0.0",
+    "version_number": "1.1.0",
     "website_url": "https://github.com/binbinmods/TemporaryInjuries",
     "description": "A mod that disables the \"Permanent Injuries\" of base Madness 9. Instead, they merely cost extra to remove.",
     "dependencies": [
